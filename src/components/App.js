@@ -188,7 +188,7 @@ function App() {
         ))}
       </ol>
 
-      {inputState.isStateClicked && (
+      {/* {inputState.isStateClicked && ( */}
         <ol>
           {inputState.cities.map((city, index) => (
             <li
@@ -202,9 +202,9 @@ function App() {
             </li>
           ))}
         </ol>
-      )}
+      {/* )} */}
 
-      {inputState.isCityClicked && (
+      {/* {inputState.isCityClicked && ( */}
         <ol>
           {inputState.towns.map((town, index) => (
             <li id={`town${index + 1}`} key={town.name}>
@@ -212,7 +212,7 @@ function App() {
             </li>
           ))}
         </ol>
-      )}
+      {/* )} */}
     </div>
   );
 }
