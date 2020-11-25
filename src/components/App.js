@@ -157,8 +157,8 @@ const states = [
 function App() {
   const [inputState, setInputState] = React.useState({
     states: [...states],
-    cities: states[0].cities,
-    towns: states[0].cities[0].towns,
+    cities: [],
+    towns: [],
     isStateClicked: false,
     isCityClicked: false
   });
@@ -173,7 +173,7 @@ function App() {
 
   return (
     <div id="main">
-<label for="states">States</label>
+      {/* <label for="states">States</label> */}
       <ol>
         {inputState.states.map((state, index) => (
           <li
