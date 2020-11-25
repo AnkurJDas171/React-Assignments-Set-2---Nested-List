@@ -173,7 +173,7 @@ function App() {
 
   return (
     <div id="main">
-      <label for="states">States</label>
+<label for="states">States</label>
       <ol>
         {inputState.states.map((state, index) => (
           <li
@@ -188,27 +188,31 @@ function App() {
         ))}
       </ol>
 
-      <ol>
-        {inputState.cities.map((city, index) => (
-          <li
-            id={`city${index + 1}`}
-            key={city.name}
-            onClick={() =>
-              handelClick(index, "towns", "cities", "isCityClicked")
-            }
-          >
-            {city.name}
-          </li>
-        ))}
-      </ol>
+      {inputState.isStateClicked && (
+        <ol>
+          {inputState.cities.map((city, index) => (
+            <li
+              id={`city${index + 1}`}
+              key={city.name}
+              onClick={() =>
+                handelClick(index, "towns", "cities", "isCityClicked")
+              }
+            >
+              {city.name}
+            </li>
+          ))}
+        </ol>
+      )}
 
-      <ol>
-        {inputState.towns.map((town, index) => (
-          <li id={`town${index + 1}`} key={town.name}>
-            {town.name}
-          </li>
-        ))}
-      </ol>
+      {inputState.isCityClicked && (
+        <ol>
+          {inputState.towns.map((town, index) => (
+            <li id={`town${index + 1}`} key={town.name}>
+              {town.name}
+            </li>
+          ))}
+        </ol>
+      )}
     </div>
   );
 }
