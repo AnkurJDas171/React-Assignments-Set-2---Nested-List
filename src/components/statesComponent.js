@@ -13,7 +13,7 @@ export default function States({ inputState, setInputState }) {
   return (
     <>
       {inputState.states.map((state, index) => (
-        <div onClick={() => handelStateClick(index)}>{state.name}</div>
+        <div key={state.name} onClick={() => handelStateClick(index)}>{state.name}</div>
       ))}
 
       {inputState.isStateClicked && (
