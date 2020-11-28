@@ -7,6 +7,7 @@ export default function States({ inputState, setInputState }) {
     inputStateCopy.cities = inputStateCopy.states[index].cities;
     inputStateCopy.towns = inputStateCopy.cities[0].towns;
     inputStateCopy.isStateClicked = true;
+    inputStateCopy.isCityClicked = false;
 
     setInputState(inputStateCopy);
   };
