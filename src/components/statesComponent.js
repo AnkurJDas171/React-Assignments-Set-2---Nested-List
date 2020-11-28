@@ -22,7 +22,7 @@ export default function States({ inputState, setInputState }) {
           {state.name}
         </div>
       ))}
-
+      <br/>
       {inputState.isStateClicked && (
         <Cities inputState={inputState} setInputState={setInputState} />
       )}

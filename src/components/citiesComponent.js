@@ -15,7 +15,7 @@ export default function Cities({ inputState, setInputState }) {
       {inputState.cities.map((city, index) => (
         <div key={city.name} id={`city${index+1}`} onClick={() => handelCityClick(index)}>{city.name}</div>
       ))}
-
+      <br/>
       {inputState.isCityClicked && <Towns inputState={inputState} />}
     </>
   );
