@@ -4,7 +4,7 @@ export default function Towns({ inputState}) {
   return (
     <>
       {inputState.towns.map((town) => (
-        <div key={town.name}>{town.name}</div>
+        <div key={town.name} id={`town${index+1}`}>{town.name}</div>
       ))}
     </>
   );
