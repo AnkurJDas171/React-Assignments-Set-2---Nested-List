@@ -166,15 +166,17 @@ function App() {
   const handelClick = (index, key, parent, clicked) => {
     let inputStateCopy = { ...inputState };
     inputStateCopy[key] = inputStateCopy[parent][index][key];
-    inputStateCopy[`${clicked}`] = true;
+    inputStateCopy[clicked] = true;
 
     setInputState(inputStateCopy);
   };
 
   return (
     <div id="main">
-      {/* <label for="states">States</label> */}
-      <ol>
+      <label for="states">
+        <b>States</b>
+      </label>
+      <div>
         {inputState.states.map((state, index) => (
           <div
             id={`state${index + 1}`}
@@ -183,48 +185,48 @@ function App() {
               handelClick(index, "cities", "states", "isStateClicked")
             }
           >
-            <li>{state.name}</li>
+            {state.name}
           </div>
         ))}
-      </ol>
+      </div>
 
-      {/* {inputState.isStateClicked && ( */}
-        <ol>
-          {inputState.cities.map((city, index) => (
-            <div
-              id={`city${index + 1}`}
-              key={city.name}
-              onClick={() =>
-                handelClick(index, "towns", "cities", "isCityClicked")
-              }
-            >
-              <li>{city.name}</li>
-            </div>
-          ))}
-        </ol>
-      {/* )} */}
+      {inputState.isStateClicked && (
+        <>
+          <label for="cities">
+            <b>Cities</b>
+          </label>
+          <div>
+            {inputState.cities.map((city, index) => (
+              <div
+                id={`city${index + 1}`}
+                key={city.name}
+                onClick={() =>
+                  handelClick(index, "towns", "cities", "isCityClicked")
+                }
+              >
+                {city.name}
+              </div>
+            ))}
+          </div>
+        </>
+      )}
 
-      {/* {inputState.isCityClicked && ( */}
-        <ol>
-          {inputState.towns.map((town, index) => (
-            <div id={`town${index + 1}`} key={town.name}>
-              <li>{town.name}</li>
-            </div>
-          ))}
-        </ol>
-      {/* )} */}
+      {inputState.isCityClicked && (
+        <>
+          <label for="towns">
+            <b>Towns</b>
+          </label>
+          <div>
+            {inputState.towns.map((town, index) => (
+              <div id={`town${index + 1}`} key={town.name}>
+                {town.name}
+              </div>
+            ))}
+          </div>
+        </>
+      )}
     </div>
   );
 }
 
 export default App;
-
-
-{/* <select id="dimension" name="dimension" class="black-font">
-          <option value="3" class="black-font">3</option>
-          <option value="4" class="black-font">4</option>
-          <option value="5" class="black-font">5</option>
-          <option value="6" class="black-font">6</option>
-          <option value="7" class="black-font">7</option>
-          <option value="8" class="black-font">8</option>
-        </select */}
