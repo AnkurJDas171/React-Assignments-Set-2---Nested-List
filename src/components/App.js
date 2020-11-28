@@ -1,4 +1,5 @@
 import React, { Component, useState } from "react";
+import States from "./statesComponent";
 import "./../styles/App.css";
 
 // Do not alter the states const and values inside it.
@@ -163,20 +164,21 @@ function App() {
     isCityClicked: false
   });
 
-  const handelClick = (index, key, parent, clicked) => {
-    let inputStateCopy = { ...inputState };
-    inputStateCopy[key] = inputStateCopy[parent][index][key];
-    inputStateCopy[clicked] = true;
+  // const handelClick = (index, key, parent, clicked) => {
+  //   let inputStateCopy = { ...inputState };
+  //   inputStateCopy[key] = inputStateCopy[parent][index][key];
+  //   inputStateCopy[clicked] = true;
 
-    setInputState(inputStateCopy);
-  };
+  //   setInputState(inputStateCopy);
+  // };
 
   return (
     <div id="main">
-      <label for="states">
-        <b>States</b>
-      </label>
-      <div>
+      
+      <States inputState={inputState} setInputState={setInputState}/>
+
+
+      {/* <div>
         {inputState.states.map((state, index) => (
           <div
             id={`state${index + 1}`}
@@ -224,7 +226,7 @@ function App() {
             ))}
           </div>
         </>
-      )}
+      )} */}
     </div>
   );
 }
