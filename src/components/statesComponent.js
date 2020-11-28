@@ -5,6 +5,7 @@ export default function States({ inputState, setInputState }) {
   const handelStateClick = (index) => {
     let inputStateCopy = { ...inputState };
     inputStateCopy.cities = inputStateCopy.states[index].cities;
+    inputStateCopy.towns = inputStateCopy.cities[0].towns;
     inputStateCopy.isStateClicked = true;
 
     setInputState(inputStateCopy);
@@ -13,7 +14,13 @@ export default function States({ inputState, setInputState }) {
   return (
     <>
       {inputState.states.map((state, index) => (
-        <div key={state.name} id={`state${index+1}`} onClick={() => handelStateClick(index)}>{state.name}</div>
+        <div
+          key={state.name}
+          id={`state${index + 1}`}
+          onClick={() => handelStateClick(index)}
+        >
+          {state.name}
+        </div>
       ))}
 
       {inputState.isStateClicked && (
