@@ -164,13 +164,13 @@ function App() {
     isCityClicked: false
   });
 
-  // const handelClick = (index, key, parent, clicked) => {
-  //   let inputStateCopy = { ...inputState };
-  //   inputStateCopy[key] = inputStateCopy[parent][index][key];
-  //   inputStateCopy[clicked] = true;
+  const handelClick = (index, key, parent, clicked) => {
+    let inputStateCopy = { ...inputState };
+    inputStateCopy[key] = inputStateCopy[parent][index][key];
+    inputStateCopy[clicked] = true;
 
-  //   setInputState(inputStateCopy);
-  // };
+    setInputState(inputStateCopy);
+  };
 
   return (
     <div id="main">
