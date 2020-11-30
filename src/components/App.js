@@ -174,11 +174,8 @@ function App() {
 
   return (
     <div id="main">
-      
-      <States inputState={inputState} setInputState={setInputState}/>
-
-
-      {/* <div>
+      {/* <States inputState={inputState} setInputState={setInputState}/> */}
+      <div>
         {inputState.states.map((state, index) => (
           <div
             id={`state${index + 1}`}
@@ -226,7 +223,7 @@ function App() {
             ))}
           </div>
         </>
-      )} */}
+      )}
     </div>
   );
 }
