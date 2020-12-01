@@ -1,6 +1,5 @@
 import React, { Component, useState } from "react";
 import Cities from "./cityComponent";
-import States from "./statesComponent";
 import "./../styles/App.css";
 
 // Do not alter the states const and values inside it.
@@ -157,13 +156,12 @@ const states = [
 ];
 
 function App() {
- 
   let setCity = null;
-  const updateIndexOfCity=(setIndexOfCity)=>{
+  const updateIndexOfCity = (setIndexOfCity) => {
     setCity = setIndexOfCity;
   };
 
-  const handelClick=(index)=>{
+  const handelClick = (index) => {
     setCity(index);
   };
 
@@ -184,7 +182,6 @@ function App() {
         ))}
       </div>
       <Cities states={states} updateIndexOfCity={updateIndexOfCity} />
-      
     </div>
   );
 }
