@@ -181,7 +181,7 @@ function App() {
     let indexCopy = { ...index };
     if (value === "cities") {
       indexCopy.indexForCity = elementIndex;
-      indexCopy.indexForTown = 0;
+      //indexCopy.indexForTown = 0;
     } else if(value === "towns"){
       indexCopy.indexForTown = elementIndex;
     }
