@@ -1,22 +1,29 @@
 import React from "react";
 
 export default function Towns({ cities, updateTownIndex }) {
-  const [indexOfTown, setIndexOfTown] = React.useState(0);
+  const [townState, setTownState] = React.useState({
+    indexOfTown: 0,
+    isClicked: false
+  });
 
-  updateTownIndex(setIndexOfTown);
+  updateTownIndex(setTownState, townState);
 
   return (
     <>
-      <label for="towns">
-        <b>Towns</b>
-      </label>
-      <div>
-        {cities[indexOfTown].towns.map((town, index) => (
-          <div id={`town${index + 1}`} key={town.name}>
-            {town.name}
+      {townState.isClicked && (
+        <>
+          <label for="towns">
+            <b>Towns</b>
+          </label>
+          <div>
+            {cities[townState.indexOfTown].towns.map((town, index) => (
+              <div id={`town${index + 1}`} key={town.name}>
+                {town.name}
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
+        </>
+      )}
     </>
   );
 }

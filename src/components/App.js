@@ -157,12 +157,23 @@ const states = [
 
 function App() {
   let setCity = null;
-  const updateIndexOfCity = (setIndexOfCity) => {
-    setCity = setIndexOfCity;
+  const updateIndexOfCity = (setCityStste,cityStste) => {
+    setCity = [setCityStste,cityStste];
   };
 
   const handelClick = (index) => {
-    setCity(index);
+    let cityStsteCopy = {...setCity[1]};
+    if(index !== cityStsteCopy.indexOfCity){
+
+      cityStsteCopy.isClicked = true;
+      cityStsteCopy.indexOfCity = index;
+
+    }else if(index === cityStsteCopy.indexOfCity){
+      cityStsteCopy.isClicked = !cityStsteCopy.isClicked;
+    }
+
+    setCity[0](cityStsteCopy);
+
   };
 
   return (

@@ -2,42 +2,56 @@ import React from "react";
 import Towns from "./townComponent";
 
 export default function Cities({ states, updateIndexOfCity }) {
-  const [indexOfCity, setIndexOfCity] = React.useState(0);
+  const [cityStste, setCityStste] = React.useState({
+    indexOfCity: 0,
+    isClicked: false
+  });
 
-  updateIndexOfCity(setIndexOfCity);
+  updateIndexOfCity(setCityStste, cityStste);
   let setTown = null;
 
-  const updateTownIndex=(setIndexOfTown) => {
-    setTown = setIndexOfTown;
+  const updateTownIndex = (setTownState,townState) => {
+    setTown = [setTownState,townState];
   };
-   
 
   const handelClick = (index) => {
-    setTown(index);
-  };
+    let townStsteCopy = {...setTown[1]};
+    if(index !== townStsteCopy.indexOfTown){
 
-  
+      townStsteCopy.isClicked = true;
+      townStsteCopy.indexOfTown = index;
+
+    }else if(index === townStsteCopy.indexOfTown){
+      townStsteCopy.isClicked = !townStsteCopy.isClicked;
+    }
+
+    setTown[0](townStsteCopy);
+  };
 
   return (
     <>
-      <label for="city">
-        <b>City</b>
-      </label>
-      <div>
-        {states[indexOfCity].cities.map((city, index) => (
-          <div
-            id={`city${index + 1}`}
-            key={city.name}
-            onClick={() => handelClick(index)}
-          >
-            {city.name}
+      {cityStste.isClicked && (
+        <>
+          <label for="city">
+            <b>City</b>
+          </label>
+          <div>
+            {states[cityStste.indexOfCity].cities.map((city, index) => (
+              <div
+                id={`city${index + 1}`}
+                key={city.name}
+                onClick={() => handelClick(index)}
+              >
+                {city.name}
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
-      <Towns
-        cities={states[indexOfCity].cities}
-        updateTownIndex={updateTownIndex}
-      />
+          <Towns
+            cities={states[cityStste.indexOfCity].cities}
+            updateTownIndex={updateTownIndex}
+          />
+        </>
+      )}
     </>
   );
 }
