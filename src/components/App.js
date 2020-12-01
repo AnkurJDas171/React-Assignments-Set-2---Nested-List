@@ -1,4 +1,5 @@
 import React, { Component, useState } from "react";
+import Cities from "./cityComponent";
 import States from "./statesComponent";
 import "./../styles/App.css";
 
@@ -172,27 +173,50 @@ function App() {
   //   setInputState(inputStateCopy);
   // };
 
-  const [index, setIndex] = React.useState({
-    indexForCity: 0,
-    indexForTown: 0
-  });
+  // const [index, setIndex] = React.useState({
+  //   indexForCity: 0,
+  //   indexForTown: 0
+  // });
 
-  const handelClick = (elementIndex, value) => {
-    let indexCopy = { ...index };
-    if (value === "cities") {
-      indexCopy.indexForCity = elementIndex;
-      //indexCopy.indexForTown = 0;
-    } else if(value === "towns"){
-      indexCopy.indexForTown = elementIndex;
-    }
+  // const handelClick = (elementIndex, value) => {
+  //   let indexCopy = { ...index };
+  //   if (value === "cities") {
+  //     indexCopy.indexForCity = elementIndex;
+  //     //indexCopy.indexForTown = 0;
+  //   } else if(value === "towns"){
+  //     indexCopy.indexForTown = elementIndex;
+  //   }
 
-    setIndex(indexCopy);
+  //   setIndex(indexCopy);
+  // };
+
+  let setCity = null;
+  const updateIndexOfCity=(setIndexOfCity)=>{
+    setCity = setIndexOfCity;
   };
 
+  const handelClick=(index)=>{
+    setCity(index);
+  };
 
   return (
     <div id="main">
       <label for="states">
+        <b>States</b>
+      </label>
+      <div>
+        {states.map((state, index) => (
+          <div
+            id={`state${index + 1}`}
+            key={state.name}
+            onClick={() => handelClick(index)}
+          >
+            {state.name}
+          </div>
+        ))}
+      </div>
+      <Cities states={states} updateIndexOfCity={updateIndexOfCity} />
+      {/* <label for="states">
         <b>States</b>
       </label>
       <div>
@@ -234,7 +258,7 @@ function App() {
             </div>
           )
         )}
-      </div>
+      </div> */}
       {/* <States inputState={inputState} setInputState={setInputState}/> */}
       {/* <div>
         {inputState.states.map((state, index) => (
