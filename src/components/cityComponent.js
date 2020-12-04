@@ -35,17 +35,17 @@ export default function Cities({ states, updateIndexOfCity }) {
           <label for="city">
             <b>City</b>
           </label>
-          <div>
+          <ol>
             {states[cityStste.indexOfCity].cities.map((city, index) => (
-              <div
+              <li
                 id={`city${index + 1}`}
                 key={city.name}
                 onClick={() => handelClick(index)}
               >
                 {city.name}
-              </div>
+              </li>
             ))}
-          </div>
+          </ol>
           <Towns
             cities={states[cityStste.indexOfCity].cities}
             updateTownIndex={updateTownIndex}

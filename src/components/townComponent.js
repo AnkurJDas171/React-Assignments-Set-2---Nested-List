@@ -15,13 +15,13 @@ export default function Towns({ cities, updateTownIndex }) {
           <label for="towns">
             <b>Towns</b>
           </label>
-          <div>
+          <ol>
             {cities[townState.indexOfTown].towns.map((town, index) => (
-              <div id={`town${index + 1}`} key={town.name}>
+              <li id={`town${index + 1}`} key={town.name}>
                 {town.name}
-              </div>
+              </li>
             ))}
-          </div>
+          </ol>
         </>
       )}
     </>

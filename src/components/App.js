@@ -181,17 +181,17 @@ function App() {
       <label for="states">
         <b>States</b>
       </label>
-      <div>
+      <ol>
         {states.map((state, index) => (
-          <div
+          <li
             id={`state${index + 1}`}
             key={state.name}
             onClick={() => handelClick(index)}
           >
             {state.name}
-          </div>
+          </li>
         ))}
-      </div>
+      </ol>
       <Cities states={states} updateIndexOfCity={updateIndexOfCity} />
     </div>
   );
